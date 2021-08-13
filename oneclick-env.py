@@ -205,6 +205,7 @@ def uninstall_docker():
 
 # 15.安装 LNMP 环境
 def install_lnmp():
+    mysql_password = input('\n请设置 MySQL 密码: ')
     print('\n正在安装 LNMP 环境，请耐心等待')
     os.system('sudo apt-get update')
     os.system('sudo apt-get install nginx php7.3-fpm php7.3-cli php7.3-curl php7.3-gd php7.3-cgi')
@@ -212,11 +213,11 @@ def install_lnmp():
     os.system('sudo service php7.3-fpm restart')
     os.system('
     os.system('sudo apt-get install mariadb-server-10.3'）
-    os.system('sudo mysql -uroot -hlocalhost -e "create user root@'127.0.0.1' identified by \"${mysql_password}\";"')
+    os.system(f'sudo mysql -uroot -hlocalhost -e "create user root@'127.0.0.1' identified by \{mysql_password}\";"')
     os.system('sudo mysql -uroot -hlocalhost -e "grant all privileges on *.* to root@'127.0.0.1' with grant option;"')
-    os.system('')
-    os.system('')
-    os.system('')
+    os.system('sudo mysql -uroot -hlocalhost -e "grant all privileges on *.* to root@'localhost' with grant option;"')
+    os.system(f'sudo mysql -uroot -hlocalhost -e "alter user root@'localhost' identified by \{mysql_password}\";"')
+    os.system('sudo mysql -uroot -p${mysql_password} -e "reset master;"')
     os.system('')
     
 #if __name__ == "__main__":
