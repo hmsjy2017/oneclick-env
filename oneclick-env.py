@@ -105,8 +105,6 @@ def install_golang():
         os.system('rm go1.16.7.linux-armv6l.tar.gz')  
     os.system('go version')
     print('\n   Golang 安装成功!')
-    else: 
-        print('\n你使用的系统暂不支持')
 
 # 6.卸载 Golang
 def uninstall_golang():
