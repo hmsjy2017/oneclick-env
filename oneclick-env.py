@@ -212,10 +212,10 @@ def install_lnmp():
     os.system('sudo rm /etc/nginx/sites-available/default')
     os.system('sudo wget https://raw.fastgit.org/hmsjy2017/oneclick-env/main/default -o /etc/nginx/sites-available/default')
     os.system('sudo apt-get install mariadb-server-10.3')
-    os.system(f'sudo mysql -uroot -hlocalhost -e "create user root@'127.0.0.1' identified by \{mysql_password}\;"')
+    os.system(f'sudo mysql -uroot -hlocalhost -e "create user root\@'127.0.0.1' identified by \{mysql_password}\;"')
     os.system('sudo mysql -uroot -hlocalhost -e "grant all privileges on *.* to root@'127.0.0.1' with grant option;"')
     os.system('sudo mysql -uroot -hlocalhost -e "grant all privileges on *.* to root@'localhost' with grant option;"')
-    os.system(f'sudo mysql -uroot -hlocalhost -e "alter user root@'localhost' identified by \{mysql_password}\;"')
+    os.system(f'sudo mysql -uroot -hlocalhost -e "alter user root\@'localhost' identified by \{mysql_password}\;"')
     os.system('sudo mysql -uroot -p${mysql_password} -e "reset master;"')
     print('\n   LNMP 环境 安装成功')
     
