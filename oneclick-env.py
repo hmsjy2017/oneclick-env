@@ -211,14 +211,15 @@ def install_lnmp():
     os.system('sudo apt-get install nginx php7.3-fpm php7.3-cli php7.3-curl php7.3-gd php7.3-cgi')
     os.system('sudo service nginx start')
     os.system('sudo service php7.3-fpm restart')
-    os.system('
+    os.system('sudo rm /etc/nginx/sites-available/default')
+    os.system('sudo wget https://raw.fastgit.org/hmsjy2017/oneclick-env/main/default -o /etc/nginx/sites-available/default')
     os.system('sudo apt-get install mariadb-server-10.3'）
     os.system(f'sudo mysql -uroot -hlocalhost -e "create user root@'127.0.0.1' identified by \{mysql_password}\";"')
     os.system('sudo mysql -uroot -hlocalhost -e "grant all privileges on *.* to root@'127.0.0.1' with grant option;"')
     os.system('sudo mysql -uroot -hlocalhost -e "grant all privileges on *.* to root@'localhost' with grant option;"')
     os.system(f'sudo mysql -uroot -hlocalhost -e "alter user root@'localhost' identified by \{mysql_password}\";"')
     os.system('sudo mysql -uroot -p${mysql_password} -e "reset master;"')
-    os.system('')
+    print('\n   LNMP 环境 安装成功')
     
 #if __name__ == "__main__":
 #    # 如果没有安装 screenfetch 就安装
