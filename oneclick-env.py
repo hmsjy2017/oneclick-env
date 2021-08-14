@@ -231,13 +231,7 @@ def install_opencv():
 #    os.system('sudo mysql -uroot -p${mysql_password} -e "reset master;"')
 #    print('\n   LNMP 环境 安装成功')
     
-#if __name__ == "__main__":
-#    # 如果没有安装 screenfetch 就安装
-#    result = os.popen('pkg list-installed|grep screenfetch')
-#    if 'screenfetch' not in result.read():
-#        print('正在安装相关依赖包: screenfetch')
-#        os.system('pkg install screenfetch -y')
-
+if __name__ == "__main__":
     copyright = logo()
     if copyright[0][10:13] != 'Dpl' or copyright[1][10:13] != '9na':
         print('校验失败 退出脚本')
