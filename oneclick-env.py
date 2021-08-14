@@ -238,8 +238,8 @@ def install_opencv():
 #        print('正在安装相关依赖包: screenfetch')
 #        os.system('pkg install screenfetch -y')
 
-#    copyright = logo()
-#    if copyright[0][10:13] != '11e' or copyright[1][10:13] != '93d':
+    copyright = logo()
+#    if copyright[0][10:13] != 'Dpl' or copyright[1][10:13] != '9na':
 #        print('校验失败 退出脚本')
 #        os._exit(0)
 
