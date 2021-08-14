@@ -24,7 +24,7 @@ def logo():
     print(' 9. 安装 Rust         10. 卸载 Rust')
     print('11. 安装 Ruby         12. 卸载 Ruby')
     print('13. 安装 Docker       14. 卸载 Docker')
-    print('15. 安装 LNMP 环境    16. 退出脚本')
+    print('15. 安装 OpenCV       16. 退出脚本')
     print('')
     return copyright_title, copyright_url
 logo()
@@ -36,7 +36,7 @@ def change_mirrors():
 	print('\n正在备份原有 APT 源')
 	os.system('sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak')
 	os.system('sudo cp /etc/apt/sources.list.d/raspi.list /etc/apt/sources.list.d/raspi.list.bak')
-	print('\n备份完成 正在更换 APT 源为 SJTU 源')
+	print('\n备份完成。正在更换 APT 源为 SJTU 源')
 	os.system('sudo sed -i "s|http://raspbian.raspberrypi.org/raspbian/|https://mirrors.sjtug.sjtu.edu.cn/raspbian/raspbian/|g" /etc/apt/sources.list')
 	os.system('sudo sed -i "s|http://deb.debian.org/debian|https://mirrors.sjtug.sjtu.edu.cn/debian|g" /etc/apt/sources.list')
 	os.system('sudo sed -i "s|http://archive.raspberrypi.org/debian/|https://mirrors.sjtug.sjtu.edu.cn/raspberrypi/debian/|g" /etc/apt/sources.list.d/raspi.list')
@@ -62,9 +62,9 @@ def install_nodejs():
     print('\n正在下载 n')
     os.system('sudo curl -L https://cdn.jsdelivr.net/gh//hmsjy2017/n@master/bin/n -o /usr/bin/n')
     print('\n下载成功')
-    print('\n正在安装 NodeJS 14 请耐心等待')
+    print('\n正在安装 NodeJS 14，请耐心等待')
     os.system('sudo bash n stable')
-    print('\n安装成功 正在更换 npm 源为淘宝源')
+    print('\n安装成功。正在更换 npm 源为淘宝源')
     os.system('npm config set registry https://registry.npm.taobao.org')
     os.system('node -v')
     os.system('npm -v')
@@ -74,7 +74,7 @@ def install_nodejs():
 
 # 4.卸载 NodeJS
 def uninstall_nodejs():
-    print('\n正在卸载 NodeJS 请耐心等待')
+    print('\n正在卸载 NodeJS，请耐心等待')
     os.system('sudo npm uninstall npm -g')
     os.system('sudo rm -rf /usr/local/lib/node /usr/local/lib/node_modules /var/db/receipts/org.nodejs.*')
     os.system('sudo rm -rf /usr/local/include/node /Users/$USER/.npm')
@@ -90,25 +90,25 @@ def install_golang():
     if bit == '64':
         os.system('wget https://dl.google.com/go/go1.16.7.linux-arm64.tar.gz')
         print('\n下载完成')
-        print('\n正在解压 请耐心等待')
+        print('\n正在解压，请耐心等待')
         os.system('sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.16.7.linux-arm64.tar.gz')
         os.system('export PATH=$PATH:/usr/local/go/bin')
-        print('\n解压完成 正在删除已下载的压缩包')
+        print('\n解压完成。正在删除已下载的压缩包')
         os.system('rm go1.16.7.linux-arm64.tar.gz')
     elif bit == '32':
         os.system('wget https://golang.google.cn/dl/go1.16.7.linux-armv6l.tar.gz')
         print('\n下载完成')
-        print('\n正在解压 请耐心等待')
+        print('\n正在解压，请耐心等待')
         os.system('sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.16.7.linux-armv6l.tar.gz')
         os.system('export PATH=$PATH:/usr/local/go/bin')
-        print('\n解压完成 正在删除已下载的压缩包')
+        print('\n解压完成。正在删除已下载的压缩包')
         os.system('rm go1.16.7.linux-armv6l.tar.gz')  
     os.system('go version')
     print('\n   Golang 安装成功!')
 
 # 6.卸载 Golang
 def uninstall_golang():
-    print('\n正在卸载 Golang 请耐心等待')
+    print('\n正在卸载 Golang，请耐心等待')
     os.system('sudo rm -rf /usr/local/go')
     print('\n卸载完成!')
 
@@ -148,7 +148,7 @@ def install_rust():
 
 # 10.卸载 Rust
 def uninstall_rust():
-    print('\n正在卸载 Rust 请耐心等待')
+    print('\n正在卸载 Rust，请耐心等待')
     os.system('rustup self uninstall -y')
     print('\n卸载完成!')
 
@@ -161,7 +161,7 @@ def install_ruby():
     os.system('source ~/.bash_profile')
     os.system('rvm -v')
     print('\nRVM 安装完成')
-    print('\n正在安装 Ruby 请耐心等待')
+    print('\n正在安装 Ruby，请耐心等待')
     os.system('echo "ruby_url=https://cache.ruby-china.com/pub/ruby" > ~/.rvm/user/db')
     os.system('rvm install 3.0 --disable-binary')
     #可选 os.system('rvm docs generate-ri')
@@ -173,9 +173,9 @@ def install_ruby():
 
 # 12.卸载 Ruby
 def uninstall_ruby():
-    print('\n正在卸载 Ruby 请耐心等待')
+    print('\n正在卸载 Ruby，请耐心等待')
     os.system('rvm remove 3.0')
-    print('\n正在卸载 RVM 请耐心等待')
+    print('\n正在卸载 RVM，请耐心等待')
     os.system('rvm implode')
     print('\n卸载完成!')
 
@@ -201,23 +201,35 @@ def uninstall_docker():
     print('\n正在安装 Docker，请耐心等待')
     os.system('sudo apt-get purge -y docker')
 
-# 15.安装 LNMP 环境
-def install_lnmp():
-    mysql_password = input('\n请设置 MySQL 密码: ')
-    print('\n正在安装 LNMP 环境，请耐心等待')
+# 15.安装 OpenCV
+def install_opencv():
+    print('\n正在安装 OpenCV，请耐心等待')
     os.system('sudo apt-get update')
-    os.system('sudo apt-get install nginx php7.3-fpm php7.3-cli php7.3-curl php7.3-gd php7.3-cgi')
-    os.system('sudo service nginx start')
-    os.system('sudo service php7.3-fpm restart')
-    os.system('sudo rm /etc/nginx/sites-available/default')
-    os.system('sudo wget https://raw.fastgit.org/hmsjy2017/oneclick-env/main/default -o /etc/nginx/sites-available/default')
-    os.system('sudo apt-get install mariadb-server-10.3')
-    os.system(f'sudo mysql -uroot -hlocalhost -e "create user root@'localhost' identified by \{mysql_password}\;"')
-    os.system('sudo mysql -uroot -hlocalhost -e "grant all privileges on *.* to root@'localhost' with grant option;"')
-    os.system('sudo mysql -uroot -hlocalhost -e "grant all privileges on *.* to root@'localhost' with grant option;"')
-    os.system(f'sudo mysql -uroot -hlocalhost -e "alter user root@'localhost' identified by \{mysql_password}\;"')
-    os.system('sudo mysql -uroot -p${mysql_password} -e "reset master;"')
-    print('\n   LNMP 环境 安装成功')
+    if bit == '64':
+        os.system('wget https://hub.fastgit.org/hmsjy2017/debian-pi-aarch64-apps/releases/download/v4.5.1/opencv-4.5.1-org.pifan_20210116-1_arm64.deb')
+    if bit == '32':
+        os.system('wget https://raw.fastgit.org/cyysky/OpenCV-Raspberry-Pi-4-Package-for-Python/master/opencv_4.5.0-1_armhf.deb')
+    os.system('sudo apt-get install -y ./opencv*.deb')
+    os.system('pkg-config --modversion opencv4')
+    print('\n   OpenCV 安装成功，如要卸载请使用 sudo apt purge opencv -y')
+
+# 15.安装 LNMP 环境
+#def install_lnmp():
+#    mysql_password = input('\n请设置 MySQL 密码: ')
+#    print('\n正在安装 LNMP 环境，请耐心等待')
+#    os.system('sudo apt-get update')
+#    os.system('sudo apt-get install nginx php7.3-fpm php7.3-cli php7.3-curl php7.3-gd php7.3-cgi')
+#    os.system('sudo service nginx start')
+#    os.system('sudo service php7.3-fpm restart')
+#    os.system('sudo rm /etc/nginx/sites-available/default')
+#    os.system('sudo wget https://raw.fastgit.org/hmsjy2017/oneclick-env/main/default -o /etc/nginx/sites-available/default')
+#    os.system('sudo apt-get install mariadb-server-10.3')
+#    os.system(f'sudo mysql -uroot -hlocalhost -e "create user root@'127.0.0.1' identified by \{mysql_password}\;"')
+#    os.system('sudo mysql -uroot -hlocalhost -e "grant all privileges on *.* to root@'localhost' with grant option;"')
+#    os.system('sudo mysql -uroot -hlocalhost -e "grant all privileges on *.* to root@'localhost' with grant option;"')
+#    os.system(f'sudo mysql -uroot -hlocalhost -e "alter user root@'127.0.0.1' identified by \{mysql_password}\;"')
+#    os.system('sudo mysql -uroot -p${mysql_password} -e "reset master;"')
+#    print('\n   LNMP 环境 安装成功')
     
 #if __name__ == "__main__":
 #    # 如果没有安装 screenfetch 就安装
@@ -274,8 +286,11 @@ def install_lnmp():
     elif int(option) == 14:
         uninstall_docker()
 
+#    elif int(option) == 15:
+#        install_lnmp()
+
     elif int(option) == 15:
-        install_lnmp()
+        install_opencv()
 
     elif int(option) == 16:
         os._exit(0)
