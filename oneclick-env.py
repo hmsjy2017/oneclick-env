@@ -212,9 +212,9 @@ def uninstall_docker():
 def install_opencv():
     print('\n正在安装 OpenCV，请耐心等待')
     os.system('sudo apt-get update')
-    if bit == '64':
+    if bit == '64bit':
         os.system('wget https://hub.fastgit.org/hmsjy2017/debian-pi-aarch64-apps/releases/download/v4.5.1/opencv-4.5.1-org.pifan_20210116-1_arm64.deb')
-    if bit == '32':
+    if bit == '32bit':
         os.system('wget https://raw.fastgit.org/cyysky/OpenCV-Raspberry-Pi-4-Package-for-Python/master/opencv_4.5.0-1_armhf.deb')
     os.system('sudo apt-get install -y ./opencv*.deb*')
     os.system('pkg-config --modversion opencv4')
