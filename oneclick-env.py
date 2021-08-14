@@ -238,7 +238,7 @@ if __name__ == "__main__":
 
     try:
         option = input('\n请选择要执行的操作: ')
-    except  EOF: 
+    except  EOFError: 
         pass
 
     if int(option) == 1:
