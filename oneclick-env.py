@@ -99,7 +99,7 @@ def install_golang():
         print('\n下载完成')
         print('\n正在解压，请耐心等待')
         os.system('sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.16.7.linux-arm64.tar.gz*')
-        os.system('export PATH=$PATH:/usr/local/go/bin')
+        os.system('export "PATH=$PATH:/usr/local/go/bin"')
         print('\n解压完成。正在删除已下载的压缩包')
         os.system('rm go1.16.7.linux-arm64.tar.gz')
     elif bit == '32bit':
@@ -107,7 +107,7 @@ def install_golang():
         print('\n下载完成')
         print('\n正在解压，请耐心等待')
         os.system('sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.16.7.linux-armv6l.tar.gz*')
-        os.system('export PATH=$PATH:/usr/local/go/bin')
+        os.system('export "PATH=$PATH:/usr/local/go/bin"')
         print('\n解压完成。正在删除已下载的压缩包')
         os.system('rm go1.16.7.linux-armv6l.tar.gz')  
     os.system('go version')
@@ -139,9 +139,9 @@ def uninstall_jdk():
 # 9.安装 Rust
 def install_rust():
     print('\n正在安装 Rust，请耐心等待')
-    os.system('wget https://raw.fastgit.org/hmsjy2017/scripts/main/rustup-init.sh')
+    os.system('wget https://raw.fastgit.org/hmsjy2017/oneclick-env/main/rustup-init.sh')
     #os.system('wget https://cdn.jsdelivr.net/gh/rust-lang-nursery/rustup.rs/rustup-init.sh')
-    os.system('echo "export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup" >> ~/.bash_profile')
+    os.system('echo "export "RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup" >> ~/.bash_profile')
     os.system('chmod +x rustup-init.sh')
     os.system('./rustup-init.sh -y')
     os.system('source $HOME/.cargo/env')
