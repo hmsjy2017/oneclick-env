@@ -211,8 +211,8 @@ def install_docker():
     os.system('curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://f1361db2.m.daocloud.io')
     os.system('sudo service docker restart')
     print('\n   Docker 安装成功！')
-    os.system('docker -v')
     print('\n   Docker 版本：')
+    os.system('docker -v')
 
 # 14.卸载 Docker
 def uninstall_docker():
