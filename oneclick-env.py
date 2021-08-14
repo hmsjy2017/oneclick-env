@@ -142,7 +142,7 @@ def install_rust():
     print('\n正在安装 Rust，请耐心等待')
     os.system('wget https://raw.fastgit.org/hmsjy2017/oneclick-env/main/rust.sh')
     os.system('chmod +x rust.sh')
-    os.system('bash rust.sh'）
+    os.system('bash rust.sh')
     #os.system('export "RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static"')
     #os.system('export "RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup"')
     os.system('wget https://cdn.jsdelivr.net/gh/rust-lang-nursery/rustup.rs/rustup-init.sh')
