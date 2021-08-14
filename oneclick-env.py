@@ -239,9 +239,9 @@ def install_opencv():
 #        os.system('pkg install screenfetch -y')
 
     copyright = logo()
-#    if copyright[0][10:13] != 'Dpl' or copyright[1][10:13] != '9na':
-#        print('校验失败 退出脚本')
-#        os._exit(0)
+    if copyright[0][10:13] != 'Dpl' or copyright[1][10:13] != '9na':
+        print('校验失败 退出脚本')
+        os._exit(0)
 
     option = input('\n请选择要执行的操作: ')
     if int(option) == 1:
