@@ -27,7 +27,7 @@ def logo():
     print('15. 安装 OpenCV       16. 退出脚本')
     print('')
     return copyright_title, copyright_url
-logo()
+
 
 bit = os.popen('getconf LONG_BIT').read()
 
