@@ -1,8 +1,9 @@
 import os
 import base64
 import argparse
+import platform
 
-bit = os.popen('getconf LONG_BIT').read()
+bit = platform.architecture()[0]
 
 def logo():
     print("""                             
@@ -93,7 +94,7 @@ def uninstall_nodejs():
 # 5.安装 Golang
 def install_golang():
     print("\n正在下载 Golang，请耐心等待")
-    if bit == '64':
+    if bit == '64bit':
         os.system('wget https://dl.google.com/go/go1.16.7.linux-arm64.tar.gz')
         print('\n下载完成')
         print('\n正在解压，请耐心等待')
@@ -101,7 +102,7 @@ def install_golang():
         os.system('export PATH=$PATH:/usr/local/go/bin')
         print('\n解压完成。正在删除已下载的压缩包')
         os.system('rm go1.16.7.linux-arm64.tar.gz')
-    elif bit == '32':
+    elif bit == '32bit':
         os.system('wget https://golang.google.cn/dl/go1.16.7.linux-armv6l.tar.gz')
         print('\n下载完成')
         print('\n正在解压，请耐心等待')
