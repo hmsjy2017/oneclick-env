@@ -59,6 +59,7 @@ def add_common_apt_repositories():
     os.system('wget https://mirrors.ustc.edu.cn/deb-multimedia/pool/main/d/deb-multimedia-keyring/deb-multimedia-keyring_2016.8.1_all.deb')
     os.system('sudo dpkg -i deb-multimedia-keyring_2016.8.1_all.deb*')
     os.system('sudo apt update')
+    os.system('rm deb-multimedia-keyring_2016.8.1_all.deb*')
     print('\nDeb Multimedia 源添加成功')
 
 # 3.安装 NodeJS	
@@ -141,7 +142,7 @@ def install_rust():
     print('\n正在安装 Rust，请耐心等待')
     os.system('wget https://raw.fastgit.org/hmsjy2017/oneclick-env/main/rustup-init.sh')
     #os.system('wget https://cdn.jsdelivr.net/gh/rust-lang-nursery/rustup.rs/rustup-init.sh')
-    os.system('echo "export "RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup" >> ~/.bash_profile')
+    os.system('echo "export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup" >> ~/.bash_profile')
     os.system('chmod +x rustup-init.sh')
     os.system('./rustup-init.sh -y')
     os.system('source $HOME/.cargo/env')
