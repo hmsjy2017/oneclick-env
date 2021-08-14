@@ -171,6 +171,7 @@ def uninstall_rust():
 # 11.安装 Ruby
 def install_ruby():
     print('\n正在安装 RVM，请耐心等待')
+    os.system('sudo apt update && sudo apt install -y gnupg')
     os.system('gpg --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB')
     os.system('\curl -sSL https://cdn.jsdelivr.net/gh/rvm/rvm@master/binscripts/rvm-installer | bash -s stable')
     os.system('source ~/.bashrc')
