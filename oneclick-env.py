@@ -201,16 +201,10 @@ def install_docker():
     print('\n正在安装 Docker，请耐心等待')
     os.system('sudo apt-get install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common')
     os.system('curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -')
-    if bit == '64':
-        os.system('wget https://raw.fastgit.org/hmsjy2017/scripts/main/docker-64.sh')
-        os.system('chmod +x docker-64.sh')
-        os.system('bash docker-64.sh')
-        os.system('rm docker-64.sh')
-    elif bit == '32':
-        os.system('wget https://raw.fastgit.org/hmsjy2017/scripts/main/docker-32.sh')
-        os.system('chmod +x docker-32.sh')
-        os.system('bash docker-32.sh')
-        os.system('rm docker-32.sh')
+    if bit == '64bit':
+        os.system('echo "deb [arch=arm64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list')
+    elif bit == '32bit':
+        os.system('echo "deb [arch=armhf] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list')
     os.system('sudo apt-get update')
     os.system('sudo apt-get install -y docker-ce')
     print('\n正在配置 Docker 镜像站（DaoCloud）')
