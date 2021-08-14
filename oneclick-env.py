@@ -32,29 +32,30 @@ bit = os.popen('getconf LONG_BIT').read()
 
 # 1.更换 APT 源为国内源
 def change_mirrors():
-	print('\n正在备份原有 APT 源')
-	os.system('sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak')
-	os.system('sudo cp /etc/apt/sources.list.d/raspi.list /etc/apt/sources.list.d/raspi.list.bak')
-	print('\n备份完成。正在更换 APT 源为 SJTU 源')
-	os.system('sudo sed -i "s|http://raspbian.raspberrypi.org/raspbian/|https://mirrors.sjtug.sjtu.edu.cn/raspbian/raspbian/|g" /etc/apt/sources.list')
-	os.system('sudo sed -i "s|http://deb.debian.org/debian|https://mirrors.sjtug.sjtu.edu.cn/debian|g" /etc/apt/sources.list')
-	os.system('sudo sed -i "s|http://archive.raspberrypi.org/debian/|https://mirrors.sjtug.sjtu.edu.cn/raspberrypi/debian/|g" /etc/apt/sources.list.d/raspi.list')
-	os.system('sudo apt update')
-	print('\n完成')
+    print('\n正在备份原有 APT 源')
+    os.system('sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak')
+    os.system('sudo cp /etc/apt/sources.list.d/raspi.list /etc/apt/sources.list.d/raspi.list.bak')
+    print('\n备份完成。正在更换 APT 源为 SJTU 源')
+    os.system('sudo sed -i "s|http://raspbian.raspberrypi.org/raspbian/|https://mirrors.sjtug.sjtu.edu.cn/raspbian/raspbian/|g" /etc/apt/sources.list')
+    os.system('sudo sed -i "s|http://deb.debian.org/debian|https://mirrors.sjtug.sjtu.edu.cn/debian|g" /etc/apt/sources.list')
+    os.system('sudo sed -i "s|http://archive.raspberrypi.org/debian/|https://mirrors.sjtug.sjtu.edu.cn/raspberrypi/debian/|g" /etc/apt/sources.list.d/raspi.list')
+    os.system('sudo apt update')
+    print('\n完成')
 
 # 2.添加常用软件源
 def add_common_apt_repositories():
-	print('正在添加 Raspbian Addons 源')
-	os.system('wget -qO- https://mirror.sjtu.edu.cn/raspbian-addons/KEY.gpg | sudo apt-key add -')
-	os.system('echo "deb https://mirror.sjtu.edu.cn/raspbian-addons/debian/ buster main" | sudo tee /etc/apt/sources.list.d/raspbian-addons.list')
-	os.system('sudo apt update')
-	print('\nRaspbian Addons 源添加成功')
-	print('正在添加 Deb Multimedia 源')
-	os.system('echo "deb http://mirrors.ustc.edu.cn/deb-multimedia/ buster main non-free" >> /etc/apt/sources.list')
-	os.system('echo "# deb-src http://mirrors.ustc.edu.cn/deb-multimedia/ buster main non-free" >> /etc/apt/sources.list')
-	os.system('echo "deb http://mirrors.ustc.edu.cn/deb-multimedia/ buster-backports main" >> /etc/apt/sources.list')
-	os.system('echo "# deb-src http://mirrors.ustc.edu.cn/deb-multimedia/ buster-backports main" >> /etc/apt/sources.list')
-	print('\nDeb Multimedia 源添加成功')
+    print('正在添加 Raspbian Addons 源')
+    os.system('sudo apt update && sudo apt install -y gnupg')
+    os.system('wget -qO- https://mirror.sjtu.edu.cn/raspbian-addons/KEY.gpg | sudo apt-key add -')
+    os.system('echo "deb https://mirror.sjtu.edu.cn/raspbian-addons/debian/ buster main" | sudo tee /etc/apt/sources.list.d/raspbian-addons.list')
+    os.system('sudo apt update')
+    print('\nRaspbian Addons 源添加成功')
+    print('正在添加 Deb Multimedia 源')
+    os.system('echo "deb http://mirrors.ustc.edu.cn/deb-multimedia/ buster main non-free" >> /etc/apt/sources.list')
+    os.system('echo "# deb-src http://mirrors.ustc.edu.cn/deb-multimedia/ buster main non-free" >> /etc/apt/sources.list')
+    os.system('echo "deb http://mirrors.ustc.edu.cn/deb-multimedia/ buster-backports main" >> /etc/apt/sources.list')
+    os.system('echo "# deb-src http://mirrors.ustc.edu.cn/deb-multimedia/ buster-backports main" >> /etc/apt/sources.list')
+    print('\nDeb Multimedia 源添加成功')
 
 # 3.安装 NodeJS	
 def install_nodejs():
@@ -240,7 +241,7 @@ if __name__ == "__main__":
         option = input('\n请选择要执行的操作: ')
     except  EOFError: 
         pass
-
+    
     if int(option) == 1:
         change_mirrors()
 
