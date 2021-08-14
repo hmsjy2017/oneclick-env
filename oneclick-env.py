@@ -56,7 +56,7 @@ def add_common_apt_repositories():
     os.system('echo "deb http://mirrors.ustc.edu.cn/deb-multimedia/ buster-backports main" >> /etc/apt/sources.list')
     os.system('echo "# deb-src http://mirrors.ustc.edu.cn/deb-multimedia/ buster-backports main" >> /etc/apt/sources.list')
     os.system('wget https://mirrors.ustc.edu.cn/deb-multimedia/pool/main/d/deb-multimedia-keyring/deb-multimedia-keyring_2016.8.1_all.deb')
-    os.system('sudo dpkg -i deb-multimedia-keyring_2016.8.1_all.deb')
+    os.system('sudo dpkg -i deb-multimedia-keyring_2016.8.1_all.deb*')
     os.system('sudo apt update')
     print('\nDeb Multimedia 源添加成功')
 
@@ -94,7 +94,7 @@ def install_golang():
         os.system('wget https://dl.google.com/go/go1.16.7.linux-arm64.tar.gz')
         print('\n下载完成')
         print('\n正在解压，请耐心等待')
-        os.system('sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.16.7.linux-arm64.tar.gz')
+        os.system('sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.16.7.linux-arm64.tar.gz*')
         os.system('export PATH=$PATH:/usr/local/go/bin')
         print('\n解压完成。正在删除已下载的压缩包')
         os.system('rm go1.16.7.linux-arm64.tar.gz')
@@ -102,7 +102,7 @@ def install_golang():
         os.system('wget https://golang.google.cn/dl/go1.16.7.linux-armv6l.tar.gz')
         print('\n下载完成')
         print('\n正在解压，请耐心等待')
-        os.system('sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.16.7.linux-armv6l.tar.gz')
+        os.system('sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.16.7.linux-armv6l.tar.gz*')
         os.system('export PATH=$PATH:/usr/local/go/bin')
         print('\n解压完成。正在删除已下载的压缩包')
         os.system('rm go1.16.7.linux-armv6l.tar.gz')  
@@ -212,7 +212,7 @@ def install_opencv():
         os.system('wget https://hub.fastgit.org/hmsjy2017/debian-pi-aarch64-apps/releases/download/v4.5.1/opencv-4.5.1-org.pifan_20210116-1_arm64.deb')
     if bit == '32':
         os.system('wget https://raw.fastgit.org/cyysky/OpenCV-Raspberry-Pi-4-Package-for-Python/master/opencv_4.5.0-1_armhf.deb')
-    os.system('sudo apt-get install -y ./opencv*.deb')
+    os.system('sudo apt-get install -y ./opencv*.deb*')
     os.system('pkg-config --modversion opencv4')
     print('\n   OpenCV 安装成功，如要卸载请使用 sudo apt purge opencv -y')
 
