@@ -55,6 +55,9 @@ def add_common_apt_repositories():
     os.system('echo "# deb-src http://mirrors.ustc.edu.cn/deb-multimedia/ buster main non-free" >> /etc/apt/sources.list')
     os.system('echo "deb http://mirrors.ustc.edu.cn/deb-multimedia/ buster-backports main" >> /etc/apt/sources.list')
     os.system('echo "# deb-src http://mirrors.ustc.edu.cn/deb-multimedia/ buster-backports main" >> /etc/apt/sources.list')
+    os.system('wget https://mirrors.ustc.edu.cn/deb-multimedia/pool/main/d/deb-multimedia-keyring/deb-multimedia-keyring_2016.8.1_all.deb')
+    os.system('sudo dpkg -i deb-multimedia-keyring_2016.8.1_all.deb')
+    os.system('sudo apt update')
     print('\nDeb Multimedia 源添加成功')
 
 # 3.安装 NodeJS	
