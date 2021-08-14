@@ -236,7 +236,11 @@ if __name__ == "__main__":
         print('校验失败 退出脚本')
         os._exit(0)
 
-    option = input('\n请选择要执行的操作: ')
+    try:
+        option = input('\n请选择要执行的操作: ')
+    except EOFError: 
+        pass
+
     if int(option) == 1:
         change_mirrors()
 
