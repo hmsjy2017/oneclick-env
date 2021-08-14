@@ -71,11 +71,11 @@ def install_nodejs():
     print('\n安装成功。正在更换 npm 源为淘宝源')
     os.system('npm config set registry https://registry.npm.taobao.org')
     print('\n   NodeJS 安装成功')
-    print('\nnode 版本：')
+    print('\n   node 版本：')
     os.system('node -v')
-    print('\nnpm 版本：')
+    print('\n   npm 版本：')
     os.system('npm -v')
-    print('\nnpm 源：')
+    print('\n   npm 源：')
     os.system('npm config get registry')
 
 # 4.卸载 NodeJS
