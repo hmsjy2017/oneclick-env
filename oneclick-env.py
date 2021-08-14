@@ -140,8 +140,8 @@ def uninstall_jdk():
 # 9.安装 Rust
 def install_rust():
     print('\n正在安装 Rust，请耐心等待')
-    os.system('export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static')
-    os.system('export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup')
+    os.system('export "RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static"')
+    os.system('export "RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup"')
     os.system('wget https://cdn.jsdelivr.net/gh/rust-lang-nursery/rustup.rs/rustup-init.sh')
     os.system('chmod +x rustup-init.sh')
     os.system('./rustup-init.sh -y')
