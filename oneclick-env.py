@@ -109,9 +109,9 @@ def install_golang():
         os.system('export "PATH=$PATH:/usr/local/go/bin"')
         print('\n解压完成。正在删除已下载的压缩包')
         os.system('rm go1.16.7.linux-armv6l.tar.gz')  
-        print('\n   Golang 安装成功！')
-        print('\n   Golang 版本：')
-        os.system('go version')
+    print('\n   Golang 安装成功！')
+    print('\n   Golang 版本：')
+    os.system('go version')
 
 # 6.卸载 Golang
 def uninstall_golang():
