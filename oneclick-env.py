@@ -177,7 +177,7 @@ def install_ruby():
     os.system('source ~/.bash_profile')
     print('\n正在安装 Ruby，请耐心等待')
     os.system('echo "ruby_url=https://cache.ruby-china.com/pub/ruby" > ~/.rvm/user/db')
-    os.system('rvm install 3.0 --disable-binary')
+    os.system('rvm install 2.7.0 --disable-binary')
     #可选 os.system('rvm docs generate-ri')
     print('\n正在安装 gems 镜像')
     os.system('gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://rubygems.org/')
