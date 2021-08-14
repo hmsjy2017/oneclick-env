@@ -216,8 +216,8 @@ def install_docker():
 
 # 14.卸载 Docker
 def uninstall_docker():
-    print('\n正在安装 Docker，请耐心等待')
-    os.system('sudo apt-get purge -y docker')
+    print('\n正在卸载 Docker，请耐心等待')
+    os.system('sudo apt-get purge -y docker-ce')
 
 # 15.安装 OpenCV
 def install_opencv():
