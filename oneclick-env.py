@@ -2,6 +2,8 @@ import os
 import base64
 import argparse
 
+bit = os.popen('getconf LONG_BIT').read()
+
 def logo():
     print("""                             
   ___              ____ _ _      _         _____            
@@ -27,8 +29,6 @@ def logo():
     print('')
     return copyright_title, copyright_url
 
-
-bit = os.popen('getconf LONG_BIT').read()
 
 # 1.更换 APT 源为国内源
 def change_mirrors():
@@ -73,6 +73,7 @@ def install_nodejs():
     os.system('node -v')
     print('\nnpm 版本：')
     os.system('npm -v')
+    print('\nnpm 源：')
     os.system('npm config get registry')
     print('\n   NodeJS 安装成功')
     print('\n    祝您使用愉快\n')
