@@ -174,6 +174,8 @@ def install_ruby():
     os.system('sudo apt update && sudo apt install -y gnupg')
     os.system('gpg --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB')
     os.system('\curl -sSL https://cdn.jsdelivr.net/gh/rvm/rvm@master/binscripts/rvm-installer | bash -s stable')
+    os.system('sudo usermod -aG rvm root')
+    os.system('sudo source /etc/profile.d/rvm.sh')
     os.system('source ~/.bashrc')
     os.system('source ~/.bash_profile')
     print('\n正在安装 Ruby，请耐心等待')
