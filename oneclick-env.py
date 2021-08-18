@@ -65,7 +65,7 @@ def add_common_apt_repositories():
 # 3.安装 NodeJS	
 def install_nodejs():
     print('\n正在下载 n')
-    os.system('sudo curl -L https://cdn.jsdelivr.net/gh//hmsjy2017/n@master/bin/n -o /usr/bin/n')
+    os.system('sudo curl -L https://cdn.jsdelivr.net/gh/hmsjy2017/n@master/bin/n -o /usr/bin/n')
     print('\n下载成功')
     print('\n正在安装 NodeJS 14，请耐心等待')
     os.system('sudo bash n stable')
