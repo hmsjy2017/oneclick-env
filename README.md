@@ -6,15 +6,6 @@
 - Python 3
 
 ### 使用方法
-下载脚本：
 ```
-wget https://raw.fastgit.org/hmsjy2017/oneclick-env/main/oneclick-env.py
-```
-运行：
-```
-python3 oneclick-env.py 
-```
-更新脚本：
-```
-rm oneclick-env.py* && wget https://raw.fastgit.org/hmsjy2017/oneclick-env/main/oneclick-env.py
+python3 <(curl -fSsL https://raw.fastgit.org/hmsjy2017/oneclick-env/main/oneclick-env.py)
 ```
