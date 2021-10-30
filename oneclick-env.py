@@ -95,7 +95,7 @@ def uninstall_nodejs():
 def install_golang():
     print("\n正在下载 Golang，请耐心等待")
     if bit == '64bit':
-        os.system('wget hhttps://dl.google.com/go/go1.17.2.linux-arm64.tar.gz')
+        os.system('wget https://dl.google.com/go/go1.17.2.linux-arm64.tar.gz')
         print('\n下载完成')
         print('\n正在解压，请耐心等待')
         os.system('sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.17.2.linux-arm64.tar.gz*')
