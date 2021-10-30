@@ -95,21 +95,21 @@ def uninstall_nodejs():
 def install_golang():
     print("\n正在下载 Golang，请耐心等待")
     if bit == '64bit':
-        os.system('wget https://dl.google.com/go/go1.16.7.linux-arm64.tar.gz')
+        os.system('wget hhttps://dl.google.com/go/go1.17.2.linux-arm64.tar.gz')
         print('\n下载完成')
         print('\n正在解压，请耐心等待')
-        os.system('sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.16.7.linux-arm64.tar.gz*')
+        os.system('sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.17.2.linux-arm64.tar.gz*')
         os.system('export "PATH=$PATH:/usr/local/go/bin"')
         print('\n解压完成。正在删除已下载的压缩包')
-        os.system('rm go1.16.7.linux-arm64.tar.gz')
+        os.system('rm go1.17.2.linux-arm64.tar.gz')
     elif bit == '32bit':
-        os.system('wget https://golang.google.cn/dl/go1.16.7.linux-armv6l.tar.gz')
+        os.system('wget https://dl.google.com/go/go1.17.2.linux-armv6l.tar.gz')
         print('\n下载完成')
         print('\n正在解压，请耐心等待')
-        os.system('sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.16.7.linux-armv6l.tar.gz*')
+        os.system('sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.17.2.linux-armv6l.tar.gz*')
         #os.system('export "PATH=$PATH:/usr/local/go/bin"')
         print('\n解压完成。正在删除已下载的压缩包')
-        os.system('rm go1.16.7.linux-armv6l.tar.gz')  
+        os.system('rm go1.17.2.linux-armv6l.tar.gz')  
     print('\n   Golang 安装成功！')
     print('\n   请手动执行 export "PATH=$PATH:/usr/local/go/bin" ')
 
